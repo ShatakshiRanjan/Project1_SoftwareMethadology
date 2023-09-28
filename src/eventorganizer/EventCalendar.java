@@ -6,7 +6,7 @@ public class EventCalendar {
 
     private int find(Event event) {
         for (int i = 0; i < Event.length(); i++) {
-          if(Event[i].equals(event) );
+          if(Event[i].equals(event));
 
     } //search an event in the list
     private void grow() { } //increase the capacity by 4
