@@ -17,16 +17,28 @@ public class EventOrganizer {
             String commandLine = scanner.nextLine().trim();
 
             if (!commandLine.isEmpty()) {
-                char command = commandLine.charAt(0);
+                String command = commandLine.substring(0,2);
 
-                switch (command) {
-                    case 'A':
-                        // Process the "A" command for adding an event
-                        // Parse the commandLine, create an Event object, and add it to the calendar
+                if (command.equals("A")) {
+                    EventCalendar.add();
+                } else if (command.equals("R")) {
+                    EventCalendar.remove();
+                } else if (command.equals("P")) {
+                    // Process various print commands: P, PE, PC, PD
+                    // Based on the specific print command, call the appropriate method in EventCalendar
+                } else if (command.equals("Q")) {
+                    // Quit the program
+                    isRunning = false;
+                } else {
+                    System.out.println(command + " is an invalid command!");
+                }
+
+                /*switch (command) {
+                    case 'A ':
+                        EventCalendar.add();
                         break;
-                    case 'R':
-                        // Process the "R" command for removing an event
-                        // Parse the commandLine, create an Event object, and remove it from the calendar
+                    case 'R ':
+                        EventCalendar.remove();
                         break;
                     case 'P':
                         // Process various print commands: P, PE, PC, PD
@@ -37,9 +49,11 @@ public class EventOrganizer {
                         isRunning = false;
                         break;
                     default:
-                        System.out.println("Invalid command: " + command);
+                        System.out.println(command + "is an invalid command!");
                         break;
                 }
+
+                 */
             }
         }
 

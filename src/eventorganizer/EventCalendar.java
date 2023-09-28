@@ -9,9 +9,19 @@ public class EventCalendar {
           if(Event[i].equals(event));
 
     } //search an event in the list
-    private void grow() { } //increase the capacity by 4
-    public boolean add(Event event) { }
-    public boolean remove(Event event) { }
+    private void grow() {
+        Event[] newEvents = new Event[events.length + 4];
+        for(int i = 0; i < numEvents; i++){
+            newEvents[i] = events[i];
+        }
+        events = newEvents;
+    } //increase the capacity by 4
+    public boolean add(Event event) {
+        if (numEvents == events.length) grow();
+    }
+    public boolean remove(Event event) {
+        int index = find()
+    }
     public boolean contains(Event event) { }
     public void print() { } //print the array as is
     public void printByDate() { } //ordered by date and timeslot
