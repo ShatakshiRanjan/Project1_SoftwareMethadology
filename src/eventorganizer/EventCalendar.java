@@ -4,7 +4,11 @@ public class EventCalendar {
     private Event [] events; //the array holding the list of events
     private int numEvents; //current number of events in the array
 
-    private int find(Event event) { } //search an event in the list
+    private int find(Event event) {
+        for (int i = 0; i < Event.length(); i++) {
+          if(Event[i].equals(event) );
+
+    } //search an event in the list
     private void grow() { } //increase the capacity by 4
     public boolean add(Event event) { }
     public boolean remove(Event event) { }

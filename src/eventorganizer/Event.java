@@ -19,6 +19,25 @@ public class Event implements Comparable<Event>{
         this.duration = duration;
     }
 
+    public Date getDate() {
+        return date;
+    }
+    public Timeslot getStartTime() {
+        return startTime;
+    }
+    public Location getLocation() {
+        return location;
+    }
+
+    public Contact getContact() {
+        return contact;
+    }
+    public int getDuration() {
+        return duration;
+    }
+
+
+
     public String toString(){
         return "[Event Date: " + dateToString(date)
     }
