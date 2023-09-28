@@ -5,11 +5,18 @@ public class Contact {
     private String email;
     public boolean isValid() {
         boolean valid = true;
-        if ( EventOrganizer.department() != "HLL114" || "ARC103" || "BE_AUD" || "TIL232" || "AB2252" || "MU302" )
+        if ( department == Department.CS || department == Department.EE || department == Department.ITI ||
+                department == Department.MATH || department == Department.BAIT)
         {
             valid = false;
         }
 
+        String emailPattern = "^[A-Za-z0-9._%+-]+@rutgers\\.edu$";
+        if (email.matches(emailPattern) != true) {
+            valid = false;
+        }
+        // Use the matches() method to check if the email matches the pattern
+        return valid;
     }
 
     public Department getDepartment(){

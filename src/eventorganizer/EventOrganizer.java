@@ -45,11 +45,13 @@ public class EventOrganizer {
 
         System.out.println("Event Organizer terminated.");
         }
-
+/*
         public static void main(String[] args) {
             EventOrganizer organizer = new EventOrganizer();
             organizer.run();
         }
     }
+
+ */
 
 }

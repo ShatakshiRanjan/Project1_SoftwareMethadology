@@ -4,8 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6607bec1-f5b3-426f-b7f8-9b75d234366f" name="Changes" comment="aaaa">
+    <list default="true" id="6607bec1-f5b3-426f-b7f8-9b75d234366f" name="Changes" comment="add">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_9_22_2023_11_28_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_9_22_2023_11_28_PM__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/eventorganizer/Date.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/eventorganizer/Date.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/eventorganizer/Department.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/eventorganizer/Department.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/eventorganizer/Event.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/eventorganizer/Event.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/eventorganizer/EventOrganizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/eventorganizer/EventOrganizer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/eventorganizer/Location.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/eventorganizer/Location.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/eventorganizer/Timeslot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/eventorganizer/Timeslot.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -14,6 +22,20 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;ShatakshiRanjan&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="ca5e7411-6fe3-49a8-a8d0-3813e679bd6f" />
+        <option name="url" value="https://github.com/ShatakshiRanjan/Project1_SoftwareMethadology.git" />
+      </UrlAndAccount>
+    </option>
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
@@ -32,6 +54,62 @@
     &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/shata/Downloads/Soft meth/Project1/src/Main.java&quot;
   }
 }</component>
+  <component name="RunManager" selected="Application.eventorganizer.Main">
+    <configuration name="EventOrganizer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="eventorganizer.EventOrganizer" />
+      <module name="Project1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="eventorganizer.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="Project1" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RunProject1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="eventorganizer.RunProject1" />
+      <module name="Project1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="eventorganizer.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="eventorganizer.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="eventorganizer.Main" />
+      <module name="Project1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="eventorganizer.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.eventorganizer.Main" />
+        <item itemvalue="Application.RunProject1" />
+        <item itemvalue="Application.EventOrganizer" />
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -41,30 +119,52 @@
       <option name="presentableId" value="Default" />
       <updated>1695434450195</updated>
     </task>
-    <task id="LOCAL-00001" summary="aaaa">
+    <task id="LOCAL-00001" summary="project1 intial commit">
       <option name="closed" value="true" />
-      <created>1695862826397</created>
+      <created>1695434567349</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1695862826397</updated>
+      <updated>1695434567349</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="add">
+      <option name="closed" value="true" />
+      <created>1695435982866</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1695435982866</updated>
+    </task>
+    <task id="LOCAL-00003" summary="add">
+      <option name="closed" value="true" />
+      <created>1695436024369</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1695436024369</updated>
+    </task>
+    <task id="LOCAL-00004" summary="add">
+      <option name="closed" value="true" />
+      <created>1695436086643</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1695436086643</updated>
+    </task>
+    <task id="LOCAL-00005" summary="add">
+      <option name="closed" value="true" />
+      <created>1695436233192</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1695436233192</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="aaaa" />
-    <option name="LAST_COMMIT_MESSAGE" value="aaaa" />
+    <MESSAGE value="project1 intial commit" />
+    <MESSAGE value="add" />
+    <option name="LAST_COMMIT_MESSAGE" value="add" />
   </component>
 </project>
