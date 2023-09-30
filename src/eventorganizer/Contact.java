@@ -27,5 +27,14 @@ public class Contact {
         return email;
     }
 
+    public Contact(){
+
+    }
+
+
+    public static void main(String[] args){
+
+    }
+
 
 }

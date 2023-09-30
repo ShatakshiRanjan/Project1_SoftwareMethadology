@@ -11,17 +11,13 @@ public enum Location {
     private final String building;
     private final String campus;
 
-    Location(String building, String campus) {
+    private Location(String building, String campus) {
         this.building = building;
         this.campus = campus;
     }
 
-    public String getBuilding() {
-        return building;
-    }
+    String getBuilding() {return this.building; }
+    String getCampus() {return this.campus; }
 
-    public String getCampus() {
-        return campus;
-    }
 }
 

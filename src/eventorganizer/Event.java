@@ -15,9 +15,7 @@ public class Event implements Comparable<Event>{
         this.duration = duration;
     }
 
-    public Date getDate() {
-        return date;
-    }
+    public Date getDate() { return this.date; }
     public Timeslot getStartTime() {
         return startTime;
     }
@@ -32,28 +30,6 @@ public class Event implements Comparable<Event>{
         return duration;
     }
 
-
-
-    // Getters for the private fields
-    public Date getDate() {
-        return date;
-    }
-
-    public Timeslot getStartTime() {
-        return startTime;
-    }
-
-    public Location getLocation() {
-        return location;
-    }
-
-    public Contact getContact() {
-        return contact;
-    }
-
-    public int getDuration() {
-        return duration;
-    }
 
     @Override
     public int compareTo(Event other) {

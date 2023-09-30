@@ -4,9 +4,19 @@ public class EventCalendar {
     private Event [] events; //the array holding the list of events
     private int numEvents; //current number of events in the array
 
-    private int find(Event event) {
-        for (int i = 0; i < Event.length(); i++) {
-          if(Event[i].equals(event));
+    public Event() {
+        this.events = this.events;
+        this.numEvents = this.numEvents;
+    }
+
+    public Event(Event[] e, int num) {
+        this.events = e;
+        this.numEvents = num;
+}
+
+    private int find() {
+        for (int i = 0; i < event.length(); i++) {
+          if(event[i].equals(event));
 
     } //search an event in the list
     private void grow() {
@@ -20,7 +30,7 @@ public class EventCalendar {
         if (numEvents == events.length) grow();
     }
     public boolean remove(Event event) {
-        int index = find()
+        int index = find();
     }
     public boolean contains(Event event) { }
     public void print() { } //print the array as is
