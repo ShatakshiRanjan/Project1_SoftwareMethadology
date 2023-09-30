@@ -27,8 +27,9 @@ public class Contact {
         return email;
     }
 
-    public Contact(){
-
+    public Contact(Department department, String email) {
+        this.department = department;
+        this.email = email;
     }
 
 

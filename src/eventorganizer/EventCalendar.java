@@ -2,14 +2,20 @@ package eventorganizer;
 
 public class EventCalendar {
     private Event [] events; //the array holding the list of events
+
+
     private int numEvents; //current number of events in the array
 
-    public Event() {
+    public int getNumEvents() {
+        return numEvents;
+    }
+
+    public EventCalendar() {
         this.events = this.events;
         this.numEvents = this.numEvents;
     }
 
-    public Event(Event[] e, int num) {
+    public EventCalendar(Event[] e, int num) {
         this.events = e;
         this.numEvents = num;
 }
@@ -61,7 +67,15 @@ public class EventCalendar {
         }
         return false;
     }
-    public boolean contains(Event event) { }
+    public boolean contains(Event event) {
+        for(int i=0; i<this.numEvents - 1; ++i){
+            if(this.find(numEvents) != -1){
+                return true;
+            }
+        }
+        return false;
+
+    }
 
     public void print() {
         int i;

@@ -7,12 +7,24 @@ public class Event implements Comparable<Event>{
     private Contact contact;
     private int duration;
 
+    public Event() {
+        this.date = this.date;
+        this.startTime = this.startTime;
+        this.location = this.location;
+        this.contact = this.contact;
+        this.duration = this.duration;
+    }
     public Event(Date date, Timeslot startTime, Location location, Contact contact, int duration) {
         this.date = date;
         this.startTime = startTime;
         this.location = location;
         this.contact = contact;
         this.duration = duration;
+    }
+
+    public Event(Date date, Timslot startTime, Location location)
+    {
+
     }
 
     public Date getDate() { return this.date; }
