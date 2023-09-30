@@ -7,8 +7,6 @@ public class Date {
     private int month;
     private int day;
 
-
-
     public Date(){
         Calendar today = Calendar.getInstance();
         this.year = today.get(1);
@@ -70,22 +68,19 @@ public class Date {
     }
 
     public boolean isLeapYear() {
-        int QUADRENNIAL = true;
-        int CENTENNIAL = true;
-        int QUATERCENTENNIAL = true;
+        int year = this.year; // Assuming 'year' is a class variable
+
         boolean isLeapYear = false;
-        if (this.year / 4 == 1) {
-            isLeapYear = false;
-        }
 
-        if (this.year / 100 == 1) {
+        // Leap years are divisible by 4
+        if (year % 4 == 0) {
             isLeapYear = true;
-        }
 
-        if (this.year / 400 == 1) {
-            isLeapYear = false;
+            // But if it's also divisible by 100, it's not a leap year unless it's also divisible by 400
+            if (year % 100 == 0 && year % 400 != 0) {
+                isLeapYear = false;
+            }
         }
-
         return isLeapYear;
     }
 

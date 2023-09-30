@@ -4,16 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6607bec1-f5b3-426f-b7f8-9b75d234366f" name="Changes" comment="cmd line">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="6607bec1-f5b3-426f-b7f8-9b75d234366f" name="Changes" comment="pushed 9/29">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/eventorganizer/Contact.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/eventorganizer/Contact.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/eventorganizer/Date.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/eventorganizer/Date.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/eventorganizer/Department.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/eventorganizer/Department.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/eventorganizer/Event.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/eventorganizer/Event.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/eventorganizer/EventCalendar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/eventorganizer/EventCalendar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/eventorganizer/Location.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/eventorganizer/Location.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/eventorganizer/EventOrganizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/eventorganizer/EventOrganizer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -190,7 +185,15 @@
       <option name="project" value="LOCAL" />
       <updated>1695874195109</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="pushed 9/29">
+      <option name="closed" value="true" />
+      <created>1696033907326</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1696033907326</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -198,7 +201,8 @@
     <MESSAGE value="add" />
     <MESSAGE value="enums and contacts" />
     <MESSAGE value="cmd line" />
-    <option name="LAST_COMMIT_MESSAGE" value="cmd line" />
+    <MESSAGE value="pushed 9/29" />
+    <option name="LAST_COMMIT_MESSAGE" value="pushed 9/29" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -14,26 +14,75 @@ public class EventCalendar {
         this.numEvents = num;
 }
 
-    private int find() {
-        for (int i = 0; i < event.length(); i++) {
-          if(event[i].equals(event));
+    private int find(Event event) {
+        int NOT_FOUND = -1;
+        for(int i=0; i < this.numEvents; ++i){
+            if(this.events[i].equals(event)){
+                return i;
+            }
+        }
+        return NOT_FOUND;
+    }
 
-    } //search an event in the list
     private void grow() {
         Event[] newEvents = new Event[events.length + 4];
-        for(int i = 0; i < numEvents; i++){
-            newEvents[i] = events[i];
+        if(this.events != null){
+            for(int i = 0; i < this.numEvents; i++){
+                newEvents[i] = this.events[i];
+            }
         }
-        events = newEvents;
-    } //increase the capacity by 4
-    public boolean add(Event event) {
-        if (numEvents == events.length) grow();
+        this.events = newEvents;
     }
+
+    public boolean add(Event event) {
+        if(this.events == null){
+            this.grow();
+        }
+        if(this.events.length - 1 == this.numEvents){
+            this.grow();
+        }
+        this.events[this.numEvents] = event;
+        ++this.numEvents;
+        return true;
+    }
+
     public boolean remove(Event event) {
-        int index = find();
+        for(int i = 0; i <= this.numEvents - 1; ++i){
+            if(this.events[i].equals(event)) {
+                this.events[i] = null;
+
+                for(int j = i; j < this.numEvents - 1; ++j) {
+                    this.events[j] = this.events[j+1];
+                }
+                this.events[this.numEvents-1] = null;
+                --this.numEvents;
+                return true;
+            }
+        }
+        return false;
     }
     public boolean contains(Event event) { }
-    public void print() { } //print the array as is
+
+    public void print() {
+        int i;
+        for(i = 0; i < this.numEvents; ++i){
+            int min = i;
+
+            for(int j = 1+i; j<this.numEvents; ++j) {
+                if(this.events[j].compareTo(this.events[min]) == -1) {
+                    min = j;
+                }
+            }
+            Event temp = this.events[min];
+            this.events[min] = this.events[i];
+            this.events[i] = temp;
+        }
+
+        for(i=0; i<this.numEvents; ++i){
+            System.out.println(this.events[i]);
+        }
+    }
+
     public void printByDate() { } //ordered by date and timeslot
     public void printByCampus() { } //ordered by campus and building/room
     public void printByDepartment(){ } //ordered by department
