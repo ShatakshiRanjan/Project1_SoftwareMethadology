@@ -1,5 +1,8 @@
 package eventorganizer;
+
 import java.util.Scanner;
+import java.util.StringTokenizer;
+
 public class EventOrganizer {
     private EventCalendar calendar;
     private Scanner scanner;
@@ -11,7 +14,7 @@ public class EventOrganizer {
 
     public void run() {
         System.out.println("Event Organizer running....");
-        boolean isRunning = true;
+        boolean isRunning = false;
 
         while (isRunning) {
             String commandLine = scanner.nextLine().trim();
