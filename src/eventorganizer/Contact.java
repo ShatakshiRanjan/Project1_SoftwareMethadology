@@ -1,41 +1,57 @@
 package eventorganizer;
 
+/**
+ Contact class: Stores contact information including department and email for event organizers
+ @author Sreekruthi Dubagunta, Shatakshi Ranjan
+ */
 public class Contact {
+
     private Department department;
     private String email;
-    public boolean isValid() {
-        boolean valid = true;
-        if ( department == Department.CS || department == Department.EE || department == Department.ITI ||
-                department == Department.MATH || department == Department.BAIT)
-        {
-            valid = false;
-        }
 
-        String emailPattern = "^[A-Za-z0-9._%+-]+@rutgers\\.edu$";
-        if (email.matches(emailPattern) != true) {
-            valid = false;
-        }
-        // Use the matches() method to check if the email matches the pattern
-        return valid;
-    }
-
-    public Department getDepartment(){
-        return department;
-    }
-
-    public String getEmail(){
-        return email;
-    }
-
+    /**
+     * Contact constructor
+     * @param department of eventorganizer.Contact
+     * @param email of eventorganizer.Contact
+     */
     public Contact(Department department, String email) {
+        super();
         this.department = department;
         this.email = email;
     }
 
-
-    public static void main(String[] args){
-
+    /**
+     * Method to get department of Contact
+     * @return department of Contact
+     */
+    public Department getDepartment() {
+        return department;
     }
 
+    /**
+     * Method to get email of Contact
+     * @return email of Contact
+     */
+    public String getEmail() {
+        return email;
+    }
+
+    /**
+     * Method to return if Contact is valid
+     * @return if Contact is valid
+     */
+    public boolean isValid() {
+        return department != null && email != null && email.contains("@") && email.split("@").length == 2 && email.split("@")[1].equals("rutgers.edu");
+    }
+
+    /**
+     * Method to get String representation of Contact
+     * @return String representation of Contact
+     */
+    @Override
+    public String toString() {
+        return department + ", " + email;
+    }
 
 }
+

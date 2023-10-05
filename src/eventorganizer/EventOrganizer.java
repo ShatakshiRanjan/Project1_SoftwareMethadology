@@ -1,181 +1,223 @@
 package eventorganizer;
-import java.io.PrintStream;
+
 import java.util.Scanner;
-import java.util.StringTokenizer;
+
+/**
+ EventOrganizer class: Facilitates the management of events through command-line interactions
+ @author Sreekruthi Dubagunta, Shatakshi Ranjan
+ */
 public class EventOrganizer {
-    Scanner input;
-    EventCalendar newEventCalendar;
 
-    //public static Event newEvent = new Event();
-
-    public EventOrganizer() {
-        this.input = new Scanner(System.in);
-        this.newEventCalendar = new EventCalendar();
-
-    }
-
+    /**
+     * Method to run EventOrganizer
+     */
     public void run() {
-        System.out.println("Event Organizer running....");
-        boolean isRunning = true;
-
-        while (this.input.hasNext() && isRunning) {
-            String commandLine = this.input.nextLine();
-            if (commandLine.equals("Q")) {
-                System.out.print("Event Organizer terminated");
-                isRunning = false;
-                break;
+        System.out.println("Event Organizer running...");
+        Scanner keyboard = new Scanner(System.in);
+        EventCalendar eventCalendar = new EventCalendar();
+        boolean quit = false;
+        while (!quit) {
+            String[] commands = keyboard.nextLine().split("\n");
+            for (String command: commands) {
+                command = command.strip();
+                if (command.equals("Q")) {
+                    quit = true;
+                    break;
+                } else if (!command.isEmpty()) {
+                    processCommand(eventCalendar, command);
+                }
             }
-            this.createEvent(commandLine);
         }
-            this.input.close();
-
+        keyboard.close();
+        System.out.println("Event Organizer terminated.");
     }
 
-    public void createEvent(String commandLine) {
-        StringTokenizer userCommand = new StringTokenizer(commandLine, "");
-        String[] locationList = new String[]{"HLL144", "ARC103", "BE_AUD", "TIL232", "AB2225", "MU302"};
-        String[] departmentList = new String[]{"CS", "EE", "ITI", "MATH", "BAIT"};
-        String[] timeSlotList = new String[]{"morning", "afternoon", "evening"};
-        String command = userCommand.nextToken();
-        String date;
-        String timeSlot;
-        String location;
-        String department;
-        String email;
-        String duration;
-        if(command.equals("A")) {
-        //String inputs
-            date = userCommand.nextToken();
-            timeSlot = userCommand.nextToken().toLowerCase();
-            location = userCommand.nextToken().toUpperCase();
-            department = userCommand.nextToken().toUpperCase();
-            email = userCommand.nextToken();
-            duration = userCommand.nextToken();
-        //Parsing inputs to right type
-            Date d = new Date(date);
-            Timeslot ts = Timeslot.valueOf(timeSlot);
-            Location l = Location.valueOf(location);
-            Department dep = Department.valueOf(department);
-            Contact c = new Contact(dep, email);
-            int dur = Integer.parseInt(duration);
-
-        //    1. An event is not a valid calendar date. 2. An event date is not a future date. 3. An event date is more than 6 months away from today’s date.
-            if(d.isValid() == false){
-                System.out.println("" + date.toString() + ": Invalid calendar date!");
-            }
-            if(d.isBefore() == true){
-                System.out.println("" + date.toString() + ": Event must be a future!");
-            }
-            if(d.is6Months() == true){
-                System.out.println("" + date.toString() + ": Event date must be within 6 months!");
-            }
-        //    4. An invalid timeslot.
-            boolean istimeSlot = false;
-            for(int x = 0; x < timeSlotList.length; ++x) {
-                if (timeSlotList[x].equals(timeSlot)) {
-                    istimeSlot = true;
-                }
-            }
-            if(istimeSlot == false)
-            {
-                System.out.println("Invalid time slot!");
-            }
-        //    5. A location that is not one of the six locations listed.
-            boolean isLocation = false;
-            for(int x = 0; x < timeSlotList.length; ++x) {
-                if (locationList[x].equals(location)) {
-                    isLocation = true;
-                }
-            }
-            if(isLocation == false)
-            {
-                System.out.println("Invalid location!");
-            }
-        //    6. A department name that is not one of the five departments listed.
-            boolean isDepartment = false;
-            for(int x = 0; x < departmentList.length; ++x) {
-                if (departmentList[x].equals(department)) {
-                    isDepartment= true;
-                }
-            }
-            if(isDepartment == false)
-            {
-                System.out.println("Invalid department!");
-            }
-        //    7. An invalid email address containing the wrong format or wrong domain name.
-            if(c.isEmailValid(email) == false){
-                System.out.println("Invalid contact information!");
-            }
-        //    8. Conflict of schedule - an event with the same date/timeslot/location is already on the calendar.
-            Event newEvent = new Event(d, ts, l, c, dur);
-            if(this.newEventCalendar.contains(newEvent)) {
-                System.out.println("The event is already on the calendar.");
-            }
-            else {
-                this.newEventCalendar.add(newEvent);
-                System.out.println("Event added to the calendar.");
-            }
-
-        }
-        else if (command.equals("R")) {
-            date = userCommand.nextToken();
-            timeSlot = userCommand.nextToken().toLowerCase();
-            location = userCommand.nextToken().toUpperCase();
-            Date rd = new Date(date);
-            //    1. An event is not a valid calendar date. 2. An event date is not a future date. 3. An event date is more than 6 months away from today’s date.
-            if(rd.isValid() == false){
-                System.out.println("" + date.toString() + ": Invalid calendar date!");
-            }
-            if(rd.isBefore() == true){
-                System.out.println("" + date.toString() + ": Event must be a future!");
-            }
-            if(rd.is6Months() == true){
-                System.out.println("" + date.toString() + ": Event date must be within 6 months!");
-            }
-            Event newEvent = new Event(d)
-            isValid = this.newEventCalender.remove(RMStudent);
-            if (isValid) {
-                System.out.println(RMProfile.toString() + "removed from the roster.");
-            } else {
-                System.out.println(RMProfile.toString() + " is not in the roster.");
-            }
-
-        }
-        else if (userCommand.equals("P")) {
-            if (this.newEventCalendar.getNumEvents() == 0) {
+    /**
+     * Method to process command in EventOrganizer
+     * @param eventCalendar of events
+     * @param command to process
+     */
+    public void processCommand(EventCalendar eventCalendar, String command) {
+        String[] params = command.split("\\s+");
+        if (params[0].equals("A") && params.length == 7) {
+            String dateString = params[1];
+            String startTimeString = params[2].toUpperCase();
+            String locationString = params[3].toUpperCase();
+            String departmentString = params[4].toUpperCase();
+            String email = params[5];
+            String durationString = params[6];
+            processAddCommand(eventCalendar, dateString, startTimeString,
+                    locationString, departmentString, email, durationString);
+        } else if (params[0].equals("R") && params.length == 4) {
+            String dateString = params[1];
+            String startTimeString = params[2].toUpperCase();
+            String locationString = params[3].toUpperCase();
+            processRemoveCommand(eventCalendar, dateString, startTimeString,
+                    locationString);
+        } else if (params[0].equals("P") && params.length == 1) {
+            if (eventCalendar.getNumEvents() == 0) {
                 System.out.println("Event calendar is empty!");
-            } else {
-                this.newEventCalendar.print();
-            }
-        } else if (userCommand.equals("PE")) {
-            if (this.newEventCalendar.getNumEvents() == 0) {
-                System.out.println("Event calendar is empty!");
-            } else {
-                this.newEventCalendar.printByDate();
-            }
-        } else if (userCommand.equals("PD")) {
-            if (this.newEventCalendar.getNumEvents() == 0) {
-                System.out.println("Event calendar is empty!");
-            } else {
-                this.newEventCalendar.printByCampus();
-            }
-        } else if (userCommand.equals("PC")) {
-            if (this.newEventCalendar.getNumEvents() == 0) {
-                System.out.println("Event calendar is empty!");
-            } else {
-                this.newEventCalendar.printByDepartment();
-            }
-        } else {
-            if (userCommand.equals("Q")) {
-                System.out.println("Event Organizer terminated.");
                 return;
             }
-
-            System.out.println(userCommand.toString() + " is an invalid command!");
+            System.out.println("* Event calendar *");
+            eventCalendar.print();
+            System.out.println("* end of event calendar *");
+        } else if (params[0].equals("PE") && params.length == 1) {
+            if (eventCalendar.getNumEvents() == 0) {
+                System.out.println("Event calendar is empty!");
+                return;
+            }
+            System.out.println("* Event calendar by event date and start time *");
+            eventCalendar.printByDate();
+            System.out.println("* end of event calendar *");
+        } else if (params[0].equals("PC") && params.length == 1) {
+            if (eventCalendar.getNumEvents() == 0) {
+                System.out.println("Event calendar is empty!");
+                return;
+            }
+            System.out.println("* Event calendar by campus and building *");
+            eventCalendar.printByCampus();
+            System.out.println("* end of event calendar *");
+        } else if (params[0].equals("PD") && params.length == 1) {
+            if (eventCalendar.getNumEvents() == 0) {
+                System.out.println("Event calendar is empty!");
+                return;
+            }
+            System.out.println("* Event calendar by department *");
+            eventCalendar.printByDepartment();
+            System.out.println("* end of event calendar *");
+        } else {
+            System.out.println(command + " is an invalid command!");
         }
     }
+
+    /**
+     * Method to process add command in EventOrganizer
+     * @param eventCalendar maintaining Events
+     * @param dateString of Event
+     * @param startTimeString of Event
+     * @param locationString of Event
+     * @param departmentString of Event
+     * @param email of Event
+     * @param durationString of Event
+     */
+    public void processAddCommand(EventCalendar eventCalendar, String dateString,
+                                  String startTimeString, String locationString, String departmentString,
+                                  String email, String durationString) {
+        String[] dateParams = dateString.split("/");
+        Date date = null;
+        try {
+            date = new Date(Integer.parseInt(dateParams[2]),
+                    Integer.parseInt(dateParams[0]), Integer.parseInt(dateParams[1]));
+            if (!date.isValid()) {
+                System.out.println(date + ": Invalid calendar date!");
+                return;
+            }
+            if (!date.isFuture()) {
+                System.out.println(date + ": Event date must be a future date!");
+                return;
+            }
+            if (!date.isWithin6Months()) {
+                System.out.println(date + ": Event date must be within 6 months!");
+                return;
+            }
+        } catch (NumberFormatException e) {
+            System.out.println(dateString + ": Invalid calendar date!");
+            return;
+        }
+        Timeslot startTime = null;
+        try {
+            startTime = Timeslot.valueOf(startTimeString);
+        } catch (IllegalArgumentException e) {
+            System.out.println("Invalid time slot!");
+            return;
+        }
+        Location location = null;
+        try {
+            location = Location.valueOf(locationString);
+        } catch (IllegalArgumentException e) {
+            System.out.println("Invalid location!");
+            return;
+        }
+        Department department = null;
+        try {
+            department = Department.valueOf(departmentString);
+        } catch (IllegalArgumentException e) {
+            System.out.println("Invalid contact information!");
+            return;
+        }
+        Contact contact = new Contact(department, email);
+        if (!contact.isValid()) {
+            System.out.println("Invalid contact information!");
+            return;
+        }
+        int duration = 0;
+        try {
+            duration = Integer.parseInt(durationString);
+            if (duration < 30 || duration > 120) {
+                System.out.println("Event duration must be at least 30 minutes and at most 120 minutes");
+                return;
+            }
+        } catch (NumberFormatException e) {
+            System.out.println("Event duration must be at least 30 minutes and at most 120 minutes");
+            return;
+        }
+        Event event = new Event(date, startTime, location, contact, duration);
+        if (eventCalendar.add(event))
+            System.out.println("Event added to the calendar.");
+        else
+            System.out.println("The event is already on the calendar.");
+    }
+
+    /**
+     * Method to process remove command in EventOrganizer
+     * @param eventCalendar maintaining Events
+     * @param dateString of Event
+     * @param startTimeString of Event
+     * @param locationString of Event
+     */
+    public void processRemoveCommand(EventCalendar eventCalendar, String dateString,
+                                     String startTimeString, String locationString) {
+        String[] dateParams = dateString.split("/");
+        Date date = null;
+        try {
+            date = new Date(Integer.parseInt(dateParams[2]),
+                    Integer.parseInt(dateParams[0]), Integer.parseInt(dateParams[1]));
+            if (!date.isValid()) {
+                System.out.println(date + ": Invalid calendar date!");
+                return;
+            }
+            if (!date.isFuture()) {
+                System.out.println(date + ": Event date must be a future date!");
+                return;
+            }
+            if (!date.isWithin6Months()) {
+                System.out.println(date + ": Event date must be within 6 months!");
+                return;
+            }
+        } catch (NumberFormatException e) {
+            System.out.println(dateString + ": Invalid calendar date!");
+            return;
+        }
+        Timeslot startTime = null;
+        try {
+            startTime = Timeslot.valueOf(startTimeString);
+        } catch (IllegalArgumentException e) {
+            System.out.println("Invalid time slot!");
+            return;
+        }
+        Location location = null;
+        try {
+            location = Location.valueOf(locationString);
+        } catch (IllegalArgumentException e) {
+            System.out.println("Invalid location!");
+            return;
+        }
+        Event event = new Event(date, startTime, location);
+        if (eventCalendar.remove(event))
+            System.out.println("Event has been removed from the calendar!");
+        else
+            System.out.println("Cannot remove; event is not in the calendar!");
+    }
 }
-
-
-
 

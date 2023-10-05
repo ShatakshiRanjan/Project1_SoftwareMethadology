@@ -2,118 +2,211 @@ package eventorganizer;
 
 import java.util.Calendar;
 
-public class Date {
+/**
+ Date class: Manages and validates dates, allowing for comparison and future date checking.
+ @author Sreekruthi Dubagunta, Shatakshi Ranjan
+ */
+public class Date implements Comparable<Date> {
+
     private int year;
     private int month;
     private int day;
 
-    public Date(){
-        Calendar today = Calendar.getInstance();
-        this.year = today.get(1);
-        this.month = today.get(2) + 1;
-        this.day = today.get(5);
+    private static final int MIN_DAY = 1;
+    private static final int[] MAX_DAYS = {0, 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+    private static final int MIN_MONTH = 1;
+    private static final int MAX_MONTH = 12;
+    private static final int FEBRUARY = 2;
+
+
+    private static final int QUADRENNIAL = 4;
+    private static final int CENTENNIAL = 100;
+    private static final int QUATERCENTENNIAL = 400;
+
+    private static final int SEMIANNUAL = 6;
+
+    /**
+     * Date constructor
+     * @param year of Date
+     * @param month of Date
+     * @param day of Date
+     */
+    public Date(int year, int month, int day) {
+        super();
+        this.year = year;
+        this.month = month;
+        this.day = day;
     }
 
-    public Date getToday(){
-        Calendar today = Calendar.getInstance();
-        int year = today.get(1);
-        int month = today.get(2) + 1;
-        int day = today.get(5);
-        Date t = new Date(month, day, year);
-        return t;
-    }
-
-    public Date(int y, int m, int d) {
-        this.year = y;
-        this.month = m;
-        this.day = d;
-    }
-
+    /**
+     * Method to get year of Date
+     * @return year of Date
+     */
     public int getYear() {
-        return this.year;
+        return year;
     }
 
+    /**
+     * Method to get month of Date
+     * @return month of Date
+     */
     public int getMonth() {
-        return this.month;
+        return month;
     }
 
+    /**
+     * Method to get day of Date
+     * @return day of Date
+     */
     public int getDay() {
-        return this.day;
+        return day;
     }
 
-    public Date(String date) {
-        String[] arrOfStr = date.split("/", 3);
-        String m = arrOfStr[0];
-        String d = arrOfStr[1];
-        String y = arrOfStr[2];
-        this.month = Integer.parseInt(m);
-        this.day = Integer.parseInt(d);
-        this.year = Integer.parseInt(y);
-    }
-
-    public boolean isValidMonth() {
-        return this.month >= 1 && this.month <= 12;
-    }
-
-    public boolean isValidDay() {
-        if ((this.month == 1 || this.month == 3 || this.month == 5 || this.month == 7 || this.month == 8 || this.month == 10 || this.month == 12) && this.day <= 31 && this.day >= 1) {
-            return true;
-        } else if ((this.month == 4 || this.month == 6 || this.month == 9 || this.month == 11) && this.day <= 30 && this.day >= 1) {
-            return true;
-        } else if (this.month == 2 && this.isLeapYear() && this.day <= 29 && this.day >= 1) {
-            return true;
-        } else {
-            return this.month == 2 && !this.isLeapYear() && this.day <= 28 && this.day >= 1;
-        }
-    }
-
-    public boolean isLeapYear() {
-        int year = this.year; // Assuming 'year' is a class variable
-
-        boolean isLeapYear = false;
-
-        // Leap years are divisible by 4
-        if (year % 4 == 0) {
-            isLeapYear = true;
-
-            // But if it's also divisible by 100, it's not a leap year unless it's also divisible by 400
-            if (year % 100 == 0 && year % 400 != 0) {
-                isLeapYear = false;
+    /**
+     * Method to return if Date is valid
+     * @return if Date is valid
+     */
+    public boolean isValid() {
+        if (month < MIN_MONTH || month > MAX_MONTH)
+            return false;
+        if (day < MIN_DAY || day > MAX_DAYS[month])
+            return false;
+        if (month == FEBRUARY) {
+            if (year % QUADRENNIAL == 0) {
+                if (year % CENTENNIAL == 0 && year % QUATERCENTENNIAL != 0 && day >= MAX_DAYS[month]) {
+                    return false;
+                }
+            } else if (day >= MAX_DAYS[month]) {
+                return false;
             }
         }
-        return isLeapYear;
+        return true;
     }
 
-    public boolean isValid() {
-        return this.isValidDay() && this.isValidMonth();
-    }
-
-    public String toString() {
-        return this.month + "/" + this.day + "/" + this.year;
-    }
-
-    public boolean equals(Object other) {
-        if (!(other instanceof Date)) {
-            return false;
-        } else {
-            Date date = (Date)other;
-            return this.day == date.day && this.month == date.month && this.year == date.year;
-        }
-    }
-
+    /**
+     * Method to compare Date with other Date
+     * @param other other Date
+     * @return integer comparing Date and other Date
+     */
+    @Override
     public int compareTo(Date other) {
-        if(this.year > other.year){
-            return 1;
-        } else if(this.month > other.month){
-            return -1;
-        } else if(this.month < other.month){
-            return 1;
-        } else if(this.day < other.day){
-            return -1;
-        } else if(this.day > other.month) {
-            return 1;
+        if (year != other.year) {
+            return year - other.year;
         } else {
-            return this.day < other.month ? 1:0;
+            if (month != other.month)
+                return month - other.month;
+            else
+                return day - other.day;
         }
+    }
+
+    /**
+     * Return String representation of Date
+     * @return String representation of Date
+     */
+    @Override
+    public String toString() {
+        return month + "/" + day + "/" + year;
+    }
+
+    /**
+     * Get if Date is in the future
+     * @return if Date is in the future
+     */
+    public boolean isFuture() {
+        Date today = new Date(Calendar.getInstance().get(Calendar.YEAR),
+                Calendar.getInstance().get(Calendar.MONTH) + 1,
+                Calendar.getInstance().get(Calendar.DAY_OF_MONTH));
+        return compareTo(today) > 0;
+    }
+
+    /**
+     * Get if Date is within 6 months
+     * @return if Date is within 6 months
+     */
+    public boolean isWithin6Months() {
+        int Within = 6;
+        Calendar today = Calendar.getInstance();
+        Calendar sixMonthsLater = Calendar.getInstance();
+        sixMonthsLater.add(Calendar.MONTH, Within);
+
+        Calendar eventDate = Calendar.getInstance();
+        eventDate.set(year, month - 1, day);
+
+        return eventDate.compareTo(today) >= 0 && eventDate.compareTo(sixMonthsLater) <= 0;
+    }
+
+    /**
+     * Date class Testbed
+     * @param args command line arguments
+     */
+    public static void main(String[] args) {
+        Date d;
+        d = new Date(2023,0,1);
+        boolean expectedOutput = false;
+        boolean actualOutput = d.isValid();
+        System.out.println("Date:" + d + ", Expected Output:" + expectedOutput + ", Actual Output:" + actualOutput);
+
+
+        d = new Date(2023,1,1);
+        expectedOutput = true;
+        actualOutput = d.isValid();
+        System.out.println("Date:" + d + ", Expected Output:" + expectedOutput + ", Actual Output:" + actualOutput);
+
+        d = new Date(2023,13,1);
+        expectedOutput = false;
+        actualOutput = d.isValid();
+        System.out.println("Date:" + d + ", Expected Output:" + expectedOutput + ", Actual Output:" + actualOutput);
+
+        d = new Date(2023,1,0);
+        expectedOutput = false;
+        actualOutput = d.isValid();
+        System.out.println("Date:" + d + ", Expected Output:" + expectedOutput + ", Actual Output:" + actualOutput);
+
+        d = new Date(2023,1,32);
+        expectedOutput = false;
+        actualOutput = d.isValid();
+        System.out.println("Date:" + d + ", Expected Output:" + expectedOutput + ", Actual Output:" + actualOutput);
+
+        d = new Date(2023,4,31);
+        expectedOutput = false;
+        actualOutput = d.isValid();
+        System.out.println("Date:" + d + ", Expected Output:" + expectedOutput + ", Actual Output:" + actualOutput);
+
+        d = new Date(2023,2,31);
+        expectedOutput = false;
+        actualOutput = d.isValid();
+        System.out.println("Date:" + d + ", Expected Output:" + expectedOutput + ", Actual Output:" + actualOutput);
+
+        d = new Date(2023,2,30);
+        expectedOutput = false;
+        actualOutput = d.isValid();
+        System.out.println("Date:" + d + ", Expected Output:" + expectedOutput + ", Actual Output:" + actualOutput);
+
+        d = new Date(2023,2,29);
+        expectedOutput = false;
+        actualOutput = d.isValid();
+        System.out.println("Date:" + d + ", Expected Output:" + expectedOutput + ", Actual Output:" + actualOutput);
+
+        d = new Date(2023,2,28);
+        expectedOutput = true;
+        actualOutput = d.isValid();
+        System.out.println("Date:" + d + ", Expected Output:" + expectedOutput + ", Actual Output:" + actualOutput);
+
+        d = new Date(2024,2,30);
+        expectedOutput = false;
+        actualOutput = d.isValid();
+        System.out.println("Date:" + d + ", Expected Output:" + expectedOutput + ", Actual Output:" + actualOutput);
+
+        d = new Date(2024,2,31);
+        expectedOutput = false;
+        actualOutput = d.isValid();
+        System.out.println("Date:" + d + ", Expected Output:" + expectedOutput + ", Actual Output:" + actualOutput);
+
+        d = new Date(2024,2,29);
+        expectedOutput = true;
+        actualOutput = d.isValid();
+        System.out.println("Date:" + d + ", Expected Output:" + expectedOutput + ", Actual Output:" + actualOutput);
     }
 }
+

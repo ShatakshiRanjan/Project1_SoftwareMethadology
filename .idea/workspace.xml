@@ -4,13 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6607bec1-f5b3-426f-b7f8-9b75d234366f" name="Changes" comment="cmd line">
+    <list default="true" id="6607bec1-f5b3-426f-b7f8-9b75d234366f" name="Changes" comment="pushed 9/29 - 9:20">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_9_22_2023_11_28_PM_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_9_22_2023_11_28_PM__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/eventorganizer/Contact.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/eventorganizer/Contact.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/eventorganizer/Date.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/eventorganizer/Date.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/eventorganizer/Department.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/eventorganizer/Department.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/eventorganizer/Event.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/eventorganizer/Event.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/eventorganizer/EventCalendar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/eventorganizer/EventCalendar.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/eventorganizer/EventOrganizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/eventorganizer/EventOrganizer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/eventorganizer/MonthValue.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/eventorganizer/Location.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/eventorganizer/Location.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/eventorganizer/RunProject1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/eventorganizer/RunProject1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/eventorganizer/Timeslot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/eventorganizer/Timeslot.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,15 +49,15 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/shata/Downloads/fwdruproject1&quot;,
-    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/shata/Downloads/Soft meth/Project1/src/Main.java&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "C:/Users/shata/Downloads/Project1",
+    "onboarding.tips.debug.path": "C:/Users/shata/Downloads/Soft meth/Project1/src/Main.java"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Application.Contact">
     <configuration name="Contact" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="eventorganizer.Contact" />
@@ -187,7 +193,15 @@
       <option name="project" value="LOCAL" />
       <updated>1695874195109</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="pushed 9/29">
+      <option name="closed" value="true" />
+      <created>1696033907326</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1696033907326</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -195,21 +209,17 @@
     <MESSAGE value="add" />
     <MESSAGE value="enums and contacts" />
     <MESSAGE value="cmd line" />
-    <option name="LAST_COMMIT_MESSAGE" value="cmd line" />
+    <MESSAGE value="pushed 9/29" />
+    <option name="LAST_COMMIT_MESSAGE" value="pushed 9/29" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-field">
           <url>file://$PROJECT_DIR$/src/eventorganizer/Contact.java</url>
-          <line>3</line>
+          <line>6</line>
           <properties field="department" class="eventorganizer.Contact" />
           <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$USER_HOME$/Downloads/RosterManager.class</url>
-          <line>85</line>
-          <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
